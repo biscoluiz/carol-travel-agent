@@ -7,7 +7,7 @@
  * Deploy: basta fazer push do repo — a Vercel detecta /api/chat.js automaticamente.
  */
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Apenas POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
