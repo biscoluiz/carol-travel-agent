@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carol — Agente de Viagens</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==================== SPLASH / BOAS-VINDAS ==================== -->
+  <div id="screen-welcome" class="screen active">
+    <div class="welcome-inner">
+      <div class="logo-area">
+        <span class="logo-emoji">🌍</span>
+        <h1>Carol</h1>
+        <p class="tagline">Sua consultora de viagens pessoal</p>
+      </div>
+
+      <div class="mode-cards">
+        <button class="mode-card" onclick="selectMode('assinatura')">
+          <span class="card-icon">✈️</span>
+          <h2>Roteiros Assinados</h2>
+          <p>Destinos que eu viajei de verdade — dicas reais, sem papo de blog genérico.</p>
+          <span class="card-cta">Ver destinos →</span>
+        </button>
+
+        <button class="mode-card" onclick="selectMode('livre')">
+          <span class="card-icon">🗺️</span>
+          <h2>Roteiro Livre</h2>
+          <p>Qualquer destino do mundo, montado pela IA com base em pesquisa atualizada.</p>
+          <span class="card-cta">Começar →</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== LISTA DE ROTEIROS ==================== -->
+  <div id="screen-roteiros" class="screen">
+    <header class="top-bar">
+      <button class="btn-back" onclick="goBack()">← Voltar</button>
+      <h2>Roteiros Assinados</h2>
+    </header>
+
+    <div id="roteiro-grid" class="roteiro-grid">
+      <!-- Preenchido dinamicamente pelo JS -->
+    </div>
+  </div>
+
+  <!-- ==================== CHAT ==================== -->
+  <div id="screen-chat" class="screen">
+    <header class="top-bar">
+      <button class="btn-back" onclick="goBack()">← Voltar</button>
+      <div class="chat-title">
+        <span id="chat-title-icon">🌍</span>
+        <span id="chat-title-text">Carol</span>
+      </div>
+      <button class="btn-clear" onclick="clearChat()" title="Nova conversa">↺</button>
+    </header>
+
+    <div id="messages" class="messages">
+      <!-- Mensagens adicionadas dinamicamente -->
+    </div>
+
+    <div class="input-bar">
+      <textarea
+        id="user-input"
+        placeholder="Pergunte algo para a Carol..."
+        rows="1"
+        onkeydown="handleKey(event)"
+        oninput="autoResize(this)"
+      ></textarea>
+      <button id="btn-send" onclick="handleSend()">
+        <span id="send-icon">➤</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

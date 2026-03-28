@@ -1,0 +1,18 @@
+# Dependências (se usar npm futuramente)
+node_modules/
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.production
+
+# Vercel
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
