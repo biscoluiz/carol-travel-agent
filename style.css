@@ -118,7 +118,7 @@ html, body {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 20%;
   border: 3px solid var(--bg);
   background: var(--bg-card);
 }
@@ -299,7 +299,7 @@ html, body {
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 20%;
   border: 2px solid var(--accent);
 }
 .chat-name     { font-size: .92rem; font-weight: 800; line-height: 1.2; }
