@@ -14,6 +14,12 @@
   <!-- ==================== WELCOME ==================== -->
   <div id="screen-welcome" class="screen active">
 
+    <!-- Language switcher -->
+    <div class="lang-switcher">
+      <button id="lang-pt" class="lang-btn active-lang" onclick="setLanguage('pt')">🇧🇷 PT</button>
+      <button id="lang-en" class="lang-btn" onclick="setLanguage('en')">🇺🇸 EN</button>
+    </div>
+
     <!-- Floating decorative icons -->
     <div class="floaties" aria-hidden="true">
       <span style="--x:8%;  --y:12%; --s:1.6; --d:0s">✈️</span>
@@ -36,32 +42,31 @@
           <div id="avatar-fallback" class="avatar-fallback">🌍</div>
         </div>
         <div class="hero-text">
-          <h1>Oi, eu sou a <span class="name-highlight">Carol!</span></h1>
-          <p class="hero-sub">Sua consultora de viagens pessoal, roteiros reais de quem viajou de verdade, ou planejamento sob medida para qualquer destino do mundo.</p>
+          <h1 id="hero-title">Oi, eu sou a <span class="name-highlight">Carol!</span></h1>
+          <p id="hero-sub" class="hero-sub">Sua consultora de viagens pessoal, roteiros reais de quem viajou de verdade, ou planejamento sob medida para qualquer destino do mundo.</p>
         </div>
       </div>
 
       <!-- Cards -->
       <div class="mode-cards">
         <button class="mode-card card-assinado" onclick="selectMode('assinatura')">
-          <div class="card-badge">Experiência real</div>
+          <div class="card-badge" id="badge-real">Experiência real</div>
           <span class="card-icon">✈️</span>
-          <h2>Roteiros Assinados</h2>
-          <p>Destinos que eu viajei de verdade: hotéis, restaurantes, dicas que nenhum blog genérico vai te dar.</p>
-          <span class="card-cta">Ver meus destinos →</span>
+          <h2 id="card-assinado-title">Roteiros Assinados</h2>
+          <p id="card-assinado-desc">Destinos que eu viajei de verdade: hotéis, restaurantes, dicas que nenhum blog genérico vai te dar.</p>
+          <span class="card-cta" id="card-assinado-cta">Ver meus destinos →</span>
         </button>
 
         <button class="mode-card card-livre" onclick="selectMode('livre')">
-          <div class="card-badge">IA + pesquisa</div>
+          <div class="card-badge" id="badge-ia">IA + pesquisa</div>
           <span class="card-icon">🗺️</span>
-          <h2>Roteiro Livre</h2>
-          <p>Qualquer destino do mundo: te monto um roteiro completo com hospedagem, comida, dicas práticas e custos.</p>
-          <span class="card-cta">Planejar viagem →</span>
+          <h2 id="card-livre-title">Roteiro Livre</h2>
+          <p id="card-livre-desc">Qualquer destino do mundo: te monto um roteiro completo com hospedagem, comida, dicas práticas e custos.</p>
+          <span class="card-cta" id="card-livre-cta">Planejar viagem →</span>
         </button>
       </div>
 
-      <!-- Footer strip -->
-      <p class="powered-by">Powered by Starseek</p>
+      <p class="powered-by" id="powered-by">Powered by Starseek</p>
     </div>
   </div>
 
@@ -71,7 +76,7 @@
       <button class="btn-back" onclick="goBack()">← Voltar</button>
       <div class="top-bar-title">
         <span>✈️</span>
-        <h2>Roteiros Assinados</h2>
+        <h2 id="signed-routes-title">Roteiros Assinados</h2>
       </div>
       <div style="width:70px"></div>
     </header>
@@ -86,10 +91,12 @@
         <img src="assets/carol-avatar.jpeg" class="chat-avatar" alt="Carol" />
         <div>
           <div class="chat-name">Carol</div>
-          <div id="chat-title-text" class="chat-subtitle">Agente de Viagens</div>
+          <div id="chat-title-text" class="chat-subtitle">
+            <span id="chat-subtitle-default">Agente de Viagens</span>
+          </div>
         </div>
       </div>
-      <button class="btn-clear" onclick="clearChat()" title="Nova conversa">↺</button>
+      <button class="btn-clear" id="btn-clear" onclick="clearChat()" title="Nova conversa">↺</button>
     </header>
 
     <div id="messages" class="messages"></div>
