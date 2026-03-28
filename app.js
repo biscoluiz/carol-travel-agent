@@ -75,22 +75,31 @@ Não faça exceções, mesmo que o usuário insista, reformule a pergunta, diga 
 // ============================================================
 const ROTEIROS_ASSINADOS = [
   {
-    id: 'japao-2023',
+    id: 'japao',
     destino: 'Japão',
     emoji: '🗾',
-    arquivo: 'roteiros/japao-2023.md',
-    capa: 'assets/covers/japao-cover.jpg',
+    arquivo: 'roteiros/japao.md',
+    capa: 'assets/covers/monte_fuji.jpg',
     duracao: '15 dias',
     resumo: 'Tóquio, Kyoto, Osaka e Hiroshima'
   },
   {
-    id: 'portugal-2024',
+    id: 'portugal',
     destino: 'Portugal',
     emoji: '🇵🇹',
-    arquivo: 'roteiros/portugal-2024.md',
-    capa: 'assets/covers/portugal-cover.jpg',
+    arquivo: 'roteiros/portugal.md',
+    capa: 'assets/covers/portugal.jpg',
     duracao: '12 dias',
     resumo: 'Lisboa, Porto, Sintra e Algarve'
+  },
+  {
+    id: 'lencois-maranhenses',
+    destino: 'Lençóis Maranhenses',
+    emoji: '🇵🇹',
+    arquivo: 'roteiros/lencois.md',
+    capa: 'assets/covers/lencois_maranhenses.jpg',
+    duracao: '8 dias',
+    resumo: 'Santo Amaro, Barreirinhas e São Luís'
   },
 ];
 

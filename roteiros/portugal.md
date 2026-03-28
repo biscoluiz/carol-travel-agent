@@ -1,13 +1,13 @@
 ---
 destino: "Portugal"
-data: "Maio 2024"
+data: "Maio"
 duracao: "12 dias"
 cidades: ["Lisboa", "Sintra", "Óbidos", "Porto", "Douro", "Algarve"]
 tags: ["gastronomia", "história", "vinho", "praia", "arquitetura"]
 capa: "portugal-cover.jpg"
 ---
 
-# Portugal — Maio 2024
+# Portugal — Maio
 
 ## Resumo
 12 dias em Portugal em maio — tempo perfeito (22–26°C, sem o calorão de agosto e sem a chuva de inverno). Começamos em Lisboa, fizemos day trips para Sintra e Óbidos, voamos para o Porto, descemos o Rio Douro de barco, e terminamos 3 dias no Algarve. Portugal é impossível de não amar: a comida é boa demais, a hospitalidade é genuína, e tudo — comparado com o resto da Europa Ocidental — é baratíssimo.
@@ -133,4 +133,4 @@ capa: "portugal-cover.jpg"
 | Compras e souvenirs | R$ 1.400 |
 | **Total por pessoa** | **~R$ 19.080** |
 
-*Câmbio aproximado de maio/2024. Preços podem ter mudado.*
+*Câmbio aproximado de maio. Preços podem ter mudado.*
