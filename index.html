@@ -4,35 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carol — Agente de Viagens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ==================== SPLASH / BOAS-VINDAS ==================== -->
+  <!-- ==================== WELCOME ==================== -->
   <div id="screen-welcome" class="screen active">
+
+    <!-- Floating decorative icons -->
+    <div class="floaties" aria-hidden="true">
+      <span style="--x:8%;  --y:12%; --s:1.6; --d:0s">✈️</span>
+      <span style="--x:88%; --y:8%;  --s:1.2; --d:.8s">🗺️</span>
+      <span style="--x:5%;  --y:70%; --s:1.0; --d:1.4s">🏝️</span>
+      <span style="--x:92%; --y:65%; --s:1.3; --d:.4s">🗼</span>
+      <span style="--x:50%; --y:5%;  --s:0.9; --d:1.1s">🌍</span>
+      <span style="--x:20%; --y:88%; --s:1.1; --d:.2s">🧳</span>
+      <span style="--x:78%; --y:90%; --s:0.9; --d:1.7s">📸</span>
+      <span style="--x:40%; --y:93%; --s:1.0; --d:.6s">🍜</span>
+    </div>
+
     <div class="welcome-inner">
-      <div class="logo-area">
-        <span class="logo-emoji">🌍</span>
-        <h1>Carol</h1>
-        <p class="tagline">Sua consultora de viagens pessoal</p>
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="avatar-wrap">
+          <img src="assets/carol-avatar.jpg" alt="Carol" class="avatar-img" id="avatar-img" />
+        </div>
+        <div class="hero-text">
+          <h1>Oi, eu sou a <span class="name-highlight">Carol!</span></h1>
+          <p class="hero-sub">Sua consultora de viagens pessoal — roteiros reais de quem viajou de verdade, ou planejamento sob medida para qualquer destino do mundo.</p>
+          <div class="destinations-strip">
+            <span>🇯🇵 Japão</span>
+            <span>🇵🇹 Portugal</span>
+            <span>🇮🇹 Itália</span>
+            <span>🇫🇷 França</span>
+            <span>🇹🇭 Tailândia</span>
+            <span>🇦🇷 Argentina</span>
+          </div>
+        </div>
       </div>
 
+      <!-- Cards -->
       <div class="mode-cards">
-        <button class="mode-card" onclick="selectMode('assinatura')">
+        <button class="mode-card card-assinado" onclick="selectMode('assinatura')">
+          <div class="card-badge">Experiência real</div>
           <span class="card-icon">✈️</span>
           <h2>Roteiros Assinados</h2>
-          <p>Destinos que eu viajei de verdade — dicas reais, sem papo de blog genérico.</p>
-          <span class="card-cta">Ver destinos →</span>
+          <p>Destinos que eu viajei de verdade — hotéis, restaurantes, dicas que nenhum blog genérico vai te dar.</p>
+          <span class="card-cta">Ver meus destinos →</span>
         </button>
 
-        <button class="mode-card" onclick="selectMode('livre')">
+        <button class="mode-card card-livre" onclick="selectMode('livre')">
+          <div class="card-badge">IA + pesquisa</div>
           <span class="card-icon">🗺️</span>
           <h2>Roteiro Livre</h2>
-          <p>Qualquer destino do mundo, montado pela IA com base em pesquisa atualizada.</p>
-          <span class="card-cta">Começar →</span>
+          <p>Qualquer destino do mundo — te monto um roteiro completo com hospedagem, comida, dicas práticas e custos.</p>
+          <span class="card-cta">Planejar viagem →</span>
         </button>
       </div>
 
+      <!-- Footer strip -->
+      <p class="powered-by">Powered by Claude · Anthropic</p>
     </div>
   </div>
 
@@ -40,12 +75,13 @@
   <div id="screen-roteiros" class="screen">
     <header class="top-bar">
       <button class="btn-back" onclick="goBack()">← Voltar</button>
-      <h2>Roteiros Assinados</h2>
+      <div class="top-bar-title">
+        <span>✈️</span>
+        <h2>Roteiros Assinados</h2>
+      </div>
+      <div style="width:70px"></div>
     </header>
-
-    <div id="roteiro-grid" class="roteiro-grid">
-      <!-- Preenchido dinamicamente pelo JS -->
-    </div>
+    <div id="roteiro-grid" class="roteiro-grid"></div>
   </div>
 
   <!-- ==================== CHAT ==================== -->
@@ -53,15 +89,16 @@
     <header class="top-bar">
       <button class="btn-back" onclick="goBack()">← Voltar</button>
       <div class="chat-title">
-        <span id="chat-title-icon">🌍</span>
-        <span id="chat-title-text">Carol</span>
+        <img src="assets/carol-avatar.jpg" class="chat-avatar" alt="Carol" />
+        <div>
+          <div class="chat-name">Carol</div>
+          <div id="chat-title-text" class="chat-subtitle">Agente de Viagens</div>
+        </div>
       </div>
       <button class="btn-clear" onclick="clearChat()" title="Nova conversa">↺</button>
     </header>
 
-    <div id="messages" class="messages">
-      <!-- Mensagens adicionadas dinamicamente -->
-    </div>
+    <div id="messages" class="messages"></div>
 
     <div class="input-bar">
       <textarea
@@ -71,9 +108,7 @@
         onkeydown="handleKey(event)"
         oninput="autoResize(this)"
       ></textarea>
-      <button id="btn-send" onclick="handleSend()">
-        <span id="send-icon">➤</span>
-      </button>
+      <button id="btn-send" onclick="handleSend()">➤</button>
     </div>
   </div>
 

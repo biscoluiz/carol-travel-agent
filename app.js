@@ -136,7 +136,6 @@ async function selectMode(mode) {
     renderRoteiroGrid();
     showScreen('screen-roteiros');
   } else {
-    document.getElementById('chat-title-icon').textContent = '🗺️';
     document.getElementById('chat-title-text').textContent = 'Roteiro Livre';
     document.getElementById('messages').innerHTML = '';
     showScreen('screen-chat');
@@ -193,7 +192,6 @@ async function selectRoteiro(roteiro) {
     return;
   }
 
-  document.getElementById('chat-title-icon').textContent = roteiro.emoji;
   document.getElementById('chat-title-text').textContent = roteiro.destino;
   document.getElementById('messages').innerHTML = '';
   showScreen('screen-chat');
@@ -249,14 +247,17 @@ async function sendMessage(userMessage) {
         }),
       });
 
-      if (!resp.ok) throw new Error('proxy_failed');
+      if (!resp.ok) {
+        const errBody = await resp.json().catch(() => ({}));
+        throw new Error(`proxy:${resp.status} — ${errBody?.error || JSON.stringify(errBody)}`);
+      }
       const data = await resp.json();
       responseText = data.content[0].text;
 
-    } catch {
+    } catch (proxyErr) {
       // Fallback: chamada direta ao browser (só funciona se API_KEY estiver preenchida)
       if (!API_KEY) {
-        throw new Error('Proxy indisponível e API_KEY não configurada. Em produção, configure ANTHROPIC_API_KEY na Vercel.');
+        throw new Error(`Proxy falhou (${proxyErr.message}) e API_KEY não configurada.`);
       }
 
       const resp = await fetch('https://api.anthropic.com/v1/messages', {
