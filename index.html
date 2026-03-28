@@ -31,7 +31,9 @@
       <!-- Hero -->
       <div class="hero">
         <div class="avatar-wrap">
-          <img src="assets/carol-avatar.jpg" alt="Carol" class="avatar-img" id="avatar-img" />
+          <img src="assets/carol-avatar.jpeg" alt="Carol" class="avatar-img" id="avatar-img"
+               onerror="this.style.display='none';document.getElementById('avatar-fallback').style.display='flex'" />
+          <div id="avatar-fallback" class="avatar-fallback">🌍</div>
         </div>
         <div class="hero-text">
           <h1>Oi, eu sou a <span class="name-highlight">Carol!</span></h1>
@@ -89,7 +91,7 @@
     <header class="top-bar">
       <button class="btn-back" onclick="goBack()">← Voltar</button>
       <div class="chat-title">
-        <img src="assets/carol-avatar.jpg" class="chat-avatar" alt="Carol" />
+        <img src="assets/carol-avatar.jpeg" class="chat-avatar" alt="Carol" />
         <div>
           <div class="chat-name">Carol</div>
           <div id="chat-title-text" class="chat-subtitle">Agente de Viagens</div>

@@ -113,6 +113,18 @@ html, body {
   background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent-warm));
   box-shadow: 0 0 40px rgba(59,130,246,.4), 0 0 80px rgba(6,182,212,.2);
 }
+.avatar-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+  background: var(--bg-card);
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
 .avatar-img {
   width: 100%;
   height: 100%;
